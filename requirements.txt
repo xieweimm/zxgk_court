@@ -1,0 +1,46 @@
+# ZXGK Court Automation Tool - Dependencies
+# 核心依赖包
+
+# 核心Web自动化依赖
+playwright>=1.40.0
+
+# GUI界面（tkinter是Python内置，无需安装）
+# tkinter - 内置模块
+
+# 配置文件处理
+pyyaml>=6.0
+
+# 异步编程
+asyncio>=3.4.3
+
+# 日志处理
+loguru>=0.7.0
+
+# 数据处理
+pandas>=2.0.0
+openpyxl>=3.1.0
+xlrd>=2.0.1
+
+# 验证码识别 (OCR)
+ddddocr>=1.0.6
+onnxruntime>=1.23.0
+Pillow>=10.0.0
+
+# HTTP请求
+requests>=2.31.0
+
+# 系统工具
+psutil>=5.9.0
+
+# 加密与安全
+cryptography>=41.0.0
+
+# 时间处理
+python-dateutil>=2.8.2
+
+# 打包工具
+pyinstaller>=6.0.0
+
+# 开发和测试工具（可选）
+pytest>=7.4.0
+black>=23.0.0

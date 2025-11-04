@@ -1,0 +1,31 @@
+# ZXGK Court Automation Tool - 应用配置
+
+# 浏览器配置
+browser:
+  type: chromium  # 浏览器类型: chromium, firefox, webkit
+  headless: false  # 是否无头模式
+  timeout: 30  # 默认超时时间（秒）
+  slow_mo: 0  # 慢动作延迟（毫秒）
+  viewport:
+    width: 1280
+    height: 720
+
+# 日志配置
+logging:
+  level: INFO  # 日志级别: DEBUG, INFO, WARNING, ERROR
+  console: true  # 是否输出到控制台
+  file: true  # 是否输出到文件
+  rotation: "00:00"  # 日志轮转时间
+  retention: "30 days"  # 日志保留时间
+
+# 任务配置
+task:
+  max_retries: 3  # 最大重试次数
+  retry_delay: 2.0  # 重试延迟（秒）
+  concurrent_limit: 5  # 并发任务数限制
+
+# 应用配置
+app:
+  name: "ZXGK Court Automation Tool"
+  version: "1.0.0"
+  theme: "default"  # 界面主题

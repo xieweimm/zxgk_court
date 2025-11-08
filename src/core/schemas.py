@@ -84,6 +84,7 @@ class AppConfig:
     """应用配置"""
     name: str = "ZXGK Court Automation Tool"
     version: str = "1.0.0"
+    build: int = 1
     theme: str = "default"
 
     @classmethod
@@ -92,6 +93,7 @@ class AppConfig:
         return cls(
             name=data.get("name", "ZXGK Court Automation Tool"),
             version=data.get("version", "1.0.0"),
+            build=data.get("build", 1),
             theme=data.get("theme", "default")
         )
 

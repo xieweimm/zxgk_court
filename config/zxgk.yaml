@@ -1,0 +1,37 @@
+# ZXGK Court Automation Tool - ZXGK 模块配置
+
+# ZXGK 被执行人查询模块配置
+zxgk:
+  # 查询 URL
+  url: "https://zxgk.court.gov.cn/zhzxgk/"
+  captcha_url: "https://zxgk.court.gov.cn/zhzxgk/captcha.do"
+
+  # 重试配置（502 错误处理）
+  retry:
+    max_retries: 5          # 最大重试次数
+    retry_delay: 3.0        # 重试间隔（秒）
+
+  # 验证码识别配置
+  captcha:
+    max_attempts: 100       # 验证码识别最大尝试次数
+    ocr_engine: "ddddocr"   # OCR 引擎类型
+
+  # 页面元素选择器
+  selectors:
+    id_input: "//input[@id='pCardNum']"              # 身份证号输入框
+    captcha_img: "//img[@id='captchaImg']"           # 验证码图片
+    captcha_input: "//input[@id='yzm']"              # 验证码输入框
+    submit_btn: "//button[contains(.,'查询')]"       # 提交按钮
+    result_table: "//table[contains(@class, 'result')]"  # 结果表格
+
+  # Excel 配置
+  excel:
+    id_column: "身份证号码"   # 身份证号列名
+    name_column: "姓名"       # 姓名列名
+    result_columns:           # 结果导出列
+      - "姓名"
+      - "身份证号"
+      - "查询时间"
+      - "状态"
+      - "案件数量"
+      - "详情"

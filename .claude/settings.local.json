@@ -3,7 +3,13 @@
     "allow": [
       "Bash(python -m pytest tests/ -v)",
       "Bash(python -m pytest tests/test_schemas.py -v)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Read(//Users/vvg/AICLUB/court/court_automation/src/ui/**)",
+      "Read(//Users/vvg/AICLUB/court/court_automation/**)",
+      "Bash(pip install:*)",
+      "Bash(cat:*)",
+      "Bash(pip show:*)",
+      "Bash(pip index:*)"
     ],
     "deny": [],
     "ask": []

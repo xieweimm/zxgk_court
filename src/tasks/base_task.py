@@ -85,6 +85,7 @@ class BaseTask(ABC):
         self.status = TaskStatus.PENDING
         self.start_time: Optional[datetime] = None
         self.end_time: Optional[datetime] = None
+        self._should_stop = False  # 停止标志
 
         logger.info(f"任务初始化: {self.task_name} (ID: {self.task_id})")
 
@@ -118,6 +119,11 @@ class BaseTask(ABC):
 
         try:
             result = await self.execute(automation_engine)
+
+            # 如果任务被停止，修改结果状态
+            if self._should_stop and result.status == TaskStatus.SUCCESS:
+                result = TaskResult(TaskStatus.CANCELLED, "任务已被用户停止", data=result.data)
+
             self.status = result.status
             self.end_time = datetime.now()
 
@@ -143,6 +149,15 @@ class BaseTask(ABC):
         if self.start_time and self.end_time:
             return (self.end_time - self.start_time).total_seconds()
         return 0.0
+
+    def stop(self):
+        """请求停止任务"""
+        logger.info(f"收到停止请求: {self.task_name}")
+        self._should_stop = True
+
+    def should_continue(self) -> bool:
+        """检查任务是否应该继续执行"""
+        return not self._should_stop
 
     def to_dict(self) -> dict[str, Any]:
         """转换为字典格式"""

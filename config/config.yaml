@@ -6,6 +6,7 @@ browser:
   headless: false  # 是否无头模式
   timeout: 30  # 默认超时时间（秒）
   slow_mo: 0  # 慢动作延迟（毫秒）
+  open_devtools: true  # 是否自动打开开发者工具（便于调试）
   viewport:
     width: 1280
     height: 720
@@ -28,4 +29,5 @@ task:
 app:
   name: "ZXGK Court Automation Tool"
   version: "1.0.0"
+  build: 12
   theme: "default"  # 界面主题
